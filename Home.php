@@ -56,7 +56,7 @@ $con=mysqli_connect("localhost","root","","honestcraig_db");
 
     <!-- Custom styles for this template -->
 
-    <link href="css/3-col-portfolio.css" rel="stylesheet">
+    <link href="stylesheet.css" type="text/css" rel="stylesheet">
 
 
 
@@ -64,7 +64,7 @@ $con=mysqli_connect("localhost","root","","honestcraig_db");
 
 
 
-  <body>
+  <body style="background-color:  #990000">
 
 
 
@@ -105,7 +105,19 @@ $con=mysqli_connect("localhost","root","","honestcraig_db");
       </div>
 
     </nav>
-
+	
+	<div></div> <!-- Grey Header Bar -->
+		<div class="row" style="background-color: #b9bec1">
+		</br>
+			<div class="col-2"></div>
+			<div class="col-8">
+				<br>
+				<br><br>
+				<h2>Current Home Listings</h2>
+			</div>
+			<div class="col-2"></div>
+		</div>
+		<br />
 
 
     <!-- Page Content -->
@@ -116,48 +128,55 @@ $con=mysqli_connect("localhost","root","","honestcraig_db");
 
       <!-- Page Heading -->
 
-      <center><h2>Current Home Listings</h2></center>
+	  <div class="row" style= "background-color: #b9bec1">
+		</br>
+			<div class="col"></div>
+			
+			<div class="col">
 
+			  <div class="container">
+				<?php
+					//$sql = "SELECT * from listings where product_category = 'Aquatics';";
+					$sql = "SELECT * from listings, users_ratings where product_category = 'Home' AND listings.username=users_ratings.username;";
+					$query = mysqli_query($con,$sql);
+				?>
+				<div class="tg-wrap"><table class="tg" style="undefined;table-layout: fixed; width: 331px">
+				<colgroup>
+				<col style="width: 100px">
+				<col style="width: 200px">
+				<col style="width: 149px">
+				<col style="width: 149px">
+				<col style="width: 149px">
+				</colgroup>
+				  <tr>
+					<th class="tg-yw4l">Product</th>
+					<th class="tg-baqh">Product Description</th>
+					<th class="tg-baqh">Price</th>
+					<th class="tg-baqh">Seller</th>
+					<th class="tg-baqh">Seller's Rating</th>
+				  </tr>
+				  <?php
+			 
+					   while ($row = mysqli_fetch_array($query)) {
+						   echo "<tr>";
+						   echo "<td>".$row['product']."</td>";
+						   echo "<td>".$row['product_desc']."</td>";
+						   echo "<td>".$row['product_price']."</td>";
+						   echo "<td>".$row['username']."</td>";
+						   echo "<td>".$row['rating']."</td>";
+						   echo "</tr>";
+					   }
+					?>
+				</table>
+					
+				</div>
 
-
-      <div class="container">
-        <?php
-            //$sql = "SELECT * from listings where product_category = 'Aquatics';";
-            $sql = "SELECT * from listings, users_ratings where product_category = 'Home' AND listings.username=users_ratings.username;";
-            $query = mysqli_query($con,$sql);
-        ?>
-        <div class="tg-wrap"><table class="tg" style="undefined;table-layout: fixed; width: 331px">
-        <colgroup>
-        <col style="width: 100px">
-        <col style="width: 200px">
-        <col style="width: 149px">
-        <col style="width: 149px">
-        <col style="width: 149px">
-        </colgroup>
-          <tr>
-            <th class="tg-yw4l">Product</th>
-            <th class="tg-baqh">Product Description</th>
-            <th class="tg-baqh">Price</th>
-            <th class="tg-baqh">Seller</th>
-            <th class="tg-baqh">Seller's Rating</th>
-          </tr>
-          <?php
-     
-               while ($row = mysqli_fetch_array($query)) {
-                   echo "<tr>";
-                   echo "<td>".$row['product']."</td>";
-                   echo "<td>".$row['product_desc']."</td>";
-                   echo "<td>".$row['product_price']."</td>";
-                   echo "<td>".$row['username']."</td>";
-                   echo "<td>".$row['rating']."</td>";
-                   echo "</tr>";
-               }
-            ?>
-        </table>
-            
-        </div>
-
-      </div>
+			   </div>
+			  </div>
+			<div class="col"></div>
+		</div>
+	</div>
+			
 
     <!-- /.container -->
 

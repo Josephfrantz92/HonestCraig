@@ -1,34 +1,12 @@
 <?php
 
 // Initialize the session
-
 session_start();
-$con=mysqli_connect("localhost","root","","honestcraig_db");
-    // Check connection
-    if (mysqli_connect_errno())
-      {
-      echo "Failed to connect to MySQL: " . mysqli_connect_error();
-      }
- 
 
 // If session variable is not set it will redirect to login page
 
-if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
-
-  header("location: login.php");
-
-  exit;
-
-}
-
-?>
 
 
-<?php
-	$user = ($_SESSION['username']);
-  $id = ($_POST["id"]);
-  $sql = "DELETE FROM listings WHERE id = '$id' AND username = '$user';";
-  mysqli_query($con,$sql);
 ?>
 
 
@@ -50,7 +28,6 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 
     <meta name="author" content="">
 
-    
 
 
     <title>Popped</title>
@@ -95,15 +72,13 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 
           <ul class="navbar-nav ml-auto">
 
-            <li class="nav-item ">
+            <li class="nav-item">
 
               <a class="nav-link" href="index.php">Home</a>
 
-            </li>
-
             <li class="nav-item">
 
-              <a class="nav-link active" href="account.php">Account</a>
+              <a class="nav-link" href="account.php">Account</a>
 
             </li>
 
@@ -114,7 +89,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
       </div>
 
     </nav>
-	
+
 	<div></div> <!-- Grey Header Bar -->
 		<div class="row" style="background-color: #b9bec1">
 		</br>
@@ -122,81 +97,83 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 			<div class="col-8">
 				<br>
 				<br><br>
-				<h2>Cancel Listing</h2>
+				<h2>Create a Listing</h2>
 			</div>
 			<div class="col-2"></div>
 		</div>
 		<br />
 
 
-
     <!-- Page Content -->
 
-    <div class="container">
-        
-
-
-      <!-- Page Heading -->
-	  <div class="row" style= "background-color: #b9bec1">
+	<div class="container">
+	
+	<div class="row" style= "background-color: #b9bec1">
 		</br>
 			<div class="col"></div>
 			
 			<div class="col">
-	  
-			  <div class="container">
-				<br>
-				<center><h1>Cancel successful</h1></center>
-			  </div>
-
-			  <br>
-			  <br>
-			  <br>
-			  <br>
-
-				<!-- /.container -->
+	
 				<div class="container">
-					<center>
-					<a href="account.php" class="btn btn-success" role="button">Back to account</a>
-					<br>
-					<br>
-					<br>
-					</center>
-					<br>
+					<center><h2>
+						Success!
+					</h2></center>
+					Username: <?php echo htmlspecialchars($_SESSION['username']); ?> 
+				
+				<br>
+			  Your category choice is: <!--<?php echo $_POST["category"]; ?> -->
+              </br>
+				<?php
+				$con=mysqli_connect("localhost","root","","honestcraig_db");
+				// Check connection
+				if (mysqli_connect_errno())
+				  {
+				  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+				  }
+
+				// Perform queries
+				  //$category = $_POST['category'];
+				  //$product_name = $_POST['product_name'];
+				  //$description = $_POST["description"];
+				  //$price = $_POST["price"];
+				?>
+			  </br>
+ 				</div>
+				
 				</div>
-			</div>
 			<div class="col"></div>
 		</div>
 	</div>
 
+      <!-- /.container -->
+	
+    </footer>
+	<nav class="navbar navbar-dark bg-dark fixed-bottom">
 
 
-    <!--footer-->
-<nav class="navbar navbar-dark bg-dark fixed-bottom">
-
-
-<?php if( isset($_SESSION['username']) && !empty($_SESSION['username']) )
-{
-?>
-<div class="container text-center">
-<p class="navbar-text col-md-12 col-sm-12 col-xs-12 text-white">Copyrighted by HonestCraig<sup>&copy;</sup>
-  <br>  
-  Logged in as: <?php echo htmlspecialchars($_SESSION['username']); ?>
-  <br>
-  <a href="logout.php" class="btn btn-danger">Sign Out</a>
-</p>
-</div>
-<?php }else{ ?>
-    <div class="container text-center">
-<p class="navbar-text col-md-12 col-sm-12 col-xs-12 text-white">
-Copyrighted by HonestCraig<sup>&copy;
-<br>
-<br>
-<a href="login.php" class="btn btn-success">Sign in</a>
-</p>
-</div>
-<?php } ?>>
-</nav>
-
+		<?php if( isset($_SESSION['username']) && !empty($_SESSION['username']) )
+		{
+		?>
+		<div class="container text-center">
+		<p class="navbar-text col-md-12 col-sm-12 col-xs-12 text-white">Copyrighted by HonestCraig<sup>&copy;</sup>
+		  <br>  
+		  Logged in as: <?php echo htmlspecialchars($_SESSION['username']); ?>
+		  <br>
+		  <a href="logout.php" class="btn btn-danger">Sign Out</a>
+		</p>
+		</div>
+		<?php }else{ ?>
+			<div class="container text-center">
+		<p class="navbar-text col-md-12 col-sm-12 col-xs-12 text-white">
+		Copyrighted by HonestCraig<sup>&copy;
+		<br>
+		<br>
+		<a href="login.php" class="btn btn-success">Sign in</a>
+		</p>
+		</div>
+		<?php } ?>>
+		</nav>
+	
 
 
     <!-- Bootstrap core JavaScript -->
@@ -206,7 +183,7 @@ Copyrighted by HonestCraig<sup>&copy;
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 
-  </div>
+
   </body>
 
 

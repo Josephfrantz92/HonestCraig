@@ -48,7 +48,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 
     <!-- Custom styles for this template -->
 
-    <link href="css/3-col-portfolio.css" rel="stylesheet">
+    <link href="stylesheet.css" type="text/css" rel="stylesheet">
 
 
 
@@ -56,7 +56,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 
 
 
-  <body>
+  <body  style="background-color:  #990000">
 
 
 
@@ -99,6 +99,19 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
       </div>
 
     </nav>
+	
+	<div></div> <!-- Grey Header Bar -->
+		<div class="row" style="background-color: #b9bec1">
+		</br>
+			<div class="col-2"></div>
+			<div class="col-8">
+				<br>
+				<br><br>
+				<h2>Create a Listing</h2>
+			</div>
+			<div class="col-2"></div>
+		</div>
+		<br />
 
 
 
@@ -108,41 +121,47 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 
 
       <!-- Page Heading -->
+	  
+	  <div class="row" style= "background-color: #b9bec1">
+		</br>
+			<div class="col"></div>
+			
+			<div class="col-lg">
 
-      <h1 align="center">What are we selling today?</h1>
+			  <h1 align="center">What are we selling today?</h1>
 
-            <form action="confirmation.php" method="post">
-            <h3>Category:
-              <select name="category">
-                <option value="Aquatics">Aquatics</option>
-                <option value="Auto">Auto</option>
-                <option value="Home">Home</option>
-              </select>
-            </h3>
-            <h3>Product Name:</h3>
-              <input type="text" name="product_name">
-            
-            <h3>Product Description:</h3>
-              <textarea name="description" rows="5" cols="50"></textarea>
-              <br>
-              <h3>Product Price:
-              <input type="text" name="price" size="5">
-            </h3>
-            <br>
-            <h3>Image of product:
-            <p style="font-size:80%;"><input type="file" name="img" id="img"></p>
-            </h3>
-            <br>
-            <center><button type="submit" class="btn btn-success">Submit</button></center>
-            <br>
-            
-            
+					<form action="confirmation.php" method="post">
+					<h3>Category:
+					  <select name="category">
+						<option value="Aquatics">Aquatics</option>
+						<option value="Auto">Auto</option>
+						<option value="Home">Home</option>
+					  </select>
+					</h3>
+					<h3>Product Name:</h3>
+					  <input type="text" name="product_name">
+					
+					<h3>Product Description:</h3>
+					  <textarea name="description" rows="5" cols="50"></textarea>
+					  <br>
+					  <h3>Product Price:</h3>
+					  <input type="text" name="price" size="5">
+					
+					<br>
+					<h3>Image of product:</h3>
+					<p style="font-size:100%;"><input type="file" name="img" id="img"></p>
+					
+					<br>
+					<center><button type="submit" class="btn btn-success">Submit</button></center>
+					<br>
+					
+					
 
-        </form>
-
-      
-
-    </div>
+				</form>
+			</div>
+			<div class="col"></div>
+		</div>
+	</div>
 
 <!--footer-->
 <nav class="navbar navbar-dark bg-dark fixed-bottom">

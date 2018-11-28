@@ -160,14 +160,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 
 
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
     <meta name="description" content="">
 
     <meta name="author" content="">
-
+	
 
 
     <title>HonestCraig</title>
@@ -182,7 +182,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     <!-- Custom styles for this template -->
 
-    <link href="css/3-col-portfolio.css" rel="stylesheet">
+    <link href="stylesheet.css" type="text/css" rel="stylesheet">
 
 
 
@@ -190,7 +190,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 
 
-  <body>
+  <body style="background-color:  #990000">
 
 
 
@@ -211,6 +211,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <div class="collapse navbar-collapse" id="navbarResponsive">
 
           <ul class="navbar-nav ml-auto">
+		  
             <li class="nav-item">
 
             <a class="nav-link" href="Index.php">Home</a>
@@ -237,6 +238,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     </nav>
 
+	<div></div> <!-- Grey Header Bar -->
+		<div class="row" style="background-color: #b9bec1">
+		</br>
+			<div class="col-2"></div>
+			<div class="col-8">
+				<br>
+				<br><br>
+				<h2>Login</h2>
+			</div>
+			<div class="col-2"></div>
+		</div>
+		<br />
 
 
     <!-- Page Content -->
@@ -246,43 +259,50 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 
       <!-- Page Heading -->
+		
+		
+		<div class="row" style= "background-color: #b9bec1">
+		</br>
+			<div class="col"></div>
+			
+			<div class="col">
+		
+			<p>Please fill in your credentials to login.</p>
 
-        <center><h2>Login</h2></center>
+				<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
 
-        <p>Please fill in your credentials to login.</p>
+					<div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
 
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+						<label>Username</label>
 
-            <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
+						<input type="text" name="username"class="form-control" value="<?php echo $username; ?>">
 
-                <label>Username</label>
+						<span class="help-block"><?php echo $username_err; ?></span>
 
-                <input type="text" name="username"class="form-control" value="<?php echo $username; ?>">
+					</div>    
 
-                <span class="help-block"><?php echo $username_err; ?></span>
+					<div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
 
-            </div>    
+						<label>Password</label>
 
-            <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
+						<input type="password" name="password" class="form-control">
 
-                <label>Password</label>
+						<span class="help-block"><?php echo $password_err; ?></span>
 
-                <input type="password" name="password" class="form-control">
+					</div>
 
-                <span class="help-block"><?php echo $password_err; ?></span>
+					<div class="form-group">
 
-            </div>
+						<input type="submit" class="btn btn-primary" value="Login">
 
-            <div class="form-group">
+					</div>
 
-                <input type="submit" class="btn btn-primary" value="Login">
+					<p>Don't have an account? <a href="signup.php">Sign up now</a>.</p>
 
-            </div>
-
-            <p>Don't have an account? <a href="signup.php">Sign up now</a>.</p>
-
-        </form>
-
+				</form>
+			</div>
+			<div class="col"></div>
+		</div>
 
 
     </div>
