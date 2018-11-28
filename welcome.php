@@ -50,7 +50,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 
     <!-- Custom styles for this template -->
 
-    <link href="css/3-col-portfolio.css" rel="stylesheet">
+    <link href="stylesheet.css" type="text/css" rel="stylesheet">
 
 
 
@@ -58,7 +58,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 
 
 
-  <body>
+  <body style="background-color:  #990000">
 
 
 
@@ -110,6 +110,18 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 
     </nav>
 
+	<div></div> <!-- Grey Header Bar -->
+		<div class="row" style="background-color: #b9bec1">
+		</br>
+			<div class="col-2"></div>
+			<div class="col-8">
+				<br>
+				<br><br>
+				<h2>Login</h2>
+			</div>
+			<div class="col-2"></div>
+		</div>
+		<br />
 
 
     <!-- Page Content -->
@@ -120,13 +132,22 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 
       <!-- Page Heading -->
 
-    <div class="page-header">
+	  <div class="row" style= "background-color: #b9bec1">
+		</br>
+			<div class="col"></div>
+			
+			<div class="col">
+				<div class="page-header">
 
-        <p align="center">Logged in succesfully as: <b><?php echo htmlspecialchars($_SESSION['username']); ?></b></p>
+					<p align="center">Logged in succesfully as: <b><?php echo htmlspecialchars($_SESSION['username']); ?></b></p>
 
-        <p align="center"><a href="index.php" class="btn btn-success">Continue to website</a></p>
+					<p align="center"><a href="index.php" class="btn btn-success">Continue to website</a></p>
 
-    </div>
+				</div>
+			</div>
+			<div class="col"></div>
+		</div>
+	</div>
 
     <!-- /.container -->
 

@@ -48,7 +48,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 
     <!-- Custom styles for this template -->
 
-    <link href="css/3-col-portfolio.css" rel="stylesheet">
+    <link href="stylesheet.css" type="text/css" rel="stylesheet">
 
 
 
@@ -56,7 +56,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 
 
 
-  <body>
+  <body style="background-color:  #990000">
 
 
 
@@ -96,82 +96,103 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 
     </nav>
 
+	<div></div> <!-- Grey Header Bar -->
+		<div class="row" style="background-color: #b9bec1">
+		</br>
+			<div class="col-2"></div>
+			<div class="col-8">
+				<br>
+				<br><br>
+				<h2>Create a Listing</h2>
+			</div>
+			<div class="col-2"></div>
+		</div>
+		<br />
 
 
     <!-- Page Content -->
 
-    <div class="container">
-    	<center><h2>
-    		Success!
-    	</h2></center>
-    	Username: <?php echo htmlspecialchars($_SESSION['username']); ?> 
-    
-    <?php
-    $con=mysqli_connect("localhost","root","","honestcraig_db");
-    // Check connection
-    if (mysqli_connect_errno())
-      {
-      echo "Failed to connect to MySQL: " . mysqli_connect_error();
-      }
+	<div class="container">
+	
+	<div class="row" style= "background-color: #b9bec1">
+		</br>
+			<div class="col"></div>
+			
+			<div class="col">
+	
+				<div class="container">
+					<center><h2>
+						Success!
+					</h2></center>
+					Username: <?php echo htmlspecialchars($_SESSION['username']); ?> 
+				
+				<?php
+				$con=mysqli_connect("localhost","root","","honestcraig_db");
+				// Check connection
+				if (mysqli_connect_errno())
+				  {
+				  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+				  }
 
-    // Perform queries
+				// Perform queries
 
-     $user= $_SESSION['username'];
-    $sql = "SELECT id FROM users WHERE username = '$user'";
-    $result = mysqli_query($con,$sql);
-     while($row = mysqli_fetch_array($result))
-        {
-    $userid = $row['id'];
-        }
-    ?>
+				 $user= $_SESSION['username'];
+				$sql = "SELECT id FROM users WHERE username = '$user'";
+				$result = mysqli_query($con,$sql);
+				 while($row = mysqli_fetch_array($result))
+					{
+				$userid = $row['id'];
+					}
+				?>
 
-    <br>
-  Your category choice is: <?php echo $_POST["category"]; ?></br>
-  Your product's name is: <?php echo $_POST["product_name"]; ?></br>
-  Your product's description is: <?php echo $_POST["description"]; ?></br>
-  Your product's price is: <?php echo $_POST["price"]; ?></br>
-  
-    <?php
-    $con=mysqli_connect("localhost","root","","honestcraig_db");
-    // Check connection
-    if (mysqli_connect_errno())
-      {
-      echo "Failed to connect to MySQL: " . mysqli_connect_error();
-      }
+				<br>
+			  Your category choice is: <?php echo $_POST["category"]; ?></br>
+			  Your product's name is: <?php echo $_POST["product_name"]; ?></br>
+			  Your product's description is: <?php echo $_POST["description"]; ?></br>
+			  Your product's price is: <?php echo $_POST["price"]; ?></br>
+			  
+				<?php
+				$con=mysqli_connect("localhost","root","","honestcraig_db");
+				// Check connection
+				if (mysqli_connect_errno())
+				  {
+				  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+				  }
 
-    // Perform queries
-      $category = $_POST['category'];
-      $product_name = $_POST['product_name'];
-      $description = $_POST["description"];
-      $price = $_POST["price"];
-    ?>
-  </br>
+				// Perform queries
+				  $category = $_POST['category'];
+				  $product_name = $_POST['product_name'];
+				  $description = $_POST["description"];
+				  $price = $_POST["price"];
+				?>
+			  </br>
  
 
 
-  <?php
-    $con=mysqli_connect("localhost","root","","honestcraig_db");
-    // Check connection
-    if (mysqli_connect_errno())
-      {
-      echo "Failed to connect to MySQL: " . mysqli_connect_error();
-      }
-        //Start insert into DB
-        $sql_insert_listing = "INSERT INTO listings (product_category,product,product_desc,product_price,username) VALUES('$category','$product_name','$description','$price', '$user');";
-        mysqli_query($con,$sql_insert_listing);
-      
-  ?>
+			  <?php
+				$con=mysqli_connect("localhost","root","","honestcraig_db");
+				// Check connection
+				if (mysqli_connect_errno())
+				  {
+				  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+				  }
+					//Start insert into DB
+					$sql_insert_listing = "INSERT INTO listings (product_category,product,product_desc,product_price,username) VALUES('$category','$product_name','$description','$price', '$user');";
+					mysqli_query($con,$sql_insert_listing);
+				  
+			  ?>
 
 
-      <!-- Page Heading -->
 
+				</div>
+				
+				</div>
+			<div class="col"></div>
+		</div>
+	</div>
 
-      
-
-    </div>
-
-    <!-- Footer -->
-
+    <!-- Footer --> 
+<!--
     <footer class="py-5 bg-dark">
 
       <div class="container">
@@ -183,11 +204,36 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
         <p align="center"><a href="logout.php" class="btn btn-danger">Sign Out</a></p>
 
       </div>
-
+-->
       <!-- /.container -->
-
+	
     </footer>
+	<nav class="navbar navbar-dark bg-dark fixed-bottom">
 
+
+		<?php if( isset($_SESSION['username']) && !empty($_SESSION['username']) )
+		{
+		?>
+		<div class="container text-center">
+		<p class="navbar-text col-md-12 col-sm-12 col-xs-12 text-white">Copyrighted by HonestCraig<sup>&copy;</sup>
+		  <br>  
+		  Logged in as: <?php echo htmlspecialchars($_SESSION['username']); ?>
+		  <br>
+		  <a href="logout.php" class="btn btn-danger">Sign Out</a>
+		</p>
+		</div>
+		<?php }else{ ?>
+			<div class="container text-center">
+		<p class="navbar-text col-md-12 col-sm-12 col-xs-12 text-white">
+		Copyrighted by HonestCraig<sup>&copy;
+		<br>
+		<br>
+		<a href="login.php" class="btn btn-success">Sign in</a>
+		</p>
+		</div>
+		<?php } ?>>
+		</nav>
+	
 
 
     <!-- Bootstrap core JavaScript -->

@@ -202,7 +202,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     <meta charset="utf-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta name="description" content="">
 
@@ -222,7 +222,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     <!-- Custom styles for this template -->
 
-    <link href="css/3-col-portfolio.css" rel="stylesheet">
+    <link href="stylesheet.css" type="text/css" rel="stylesheet">
 
 
 
@@ -230,7 +230,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 
 
-  <body>
+  <body style="background-color:  #990000">
 
 
 
@@ -276,6 +276,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       </div>
 
     </nav>
+	
+	<div></div> <!-- Grey Header Bar -->
+		<div class="row" style="background-color: #b9bec1">
+		</br>
+			<div class="col-2"></div>
+			<div class="col-8">
+				<br>
+				<br><br>
+				<h2>Sign Up</h2>
+			</div>
+			<div class="col-2"></div>
+		</div>
+		<br />
 
 
 
@@ -287,55 +300,59 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
       <!-- Page Heading -->
 
-              <center><h2>Sign Up</h2></center>
+       <div class="row" style= "background-color: #b9bec1">
+		</br>
+			<div class="col"></div>
+			
+			<div class="col">
 
-        <p>Please fill this form to create an account.</p>
+				<p>Please fill this form to create an account.</p>
 
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+				<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
 
-            <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
+					<div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
 
-                <label>Username</label>
+						<label>Username</label>
 
-                <input type="text" name="username"class="form-control" value="<?php echo $username; ?>">
+						<input type="text" name="username"class="form-control" value="<?php echo $username; ?>">
 
-                <span class="help-block"><?php echo $username_err; ?></span>
+						<span class="help-block"><?php echo $username_err; ?></span>
 
-            </div>    
+					</div>    
 
-            <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
+					<div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
 
-                <label>Password</label>
+						<label>Password</label>
 
-                <input type="password" name="password" class="form-control" value="<?php echo $password; ?>">
+						<input type="password" name="password" class="form-control" value="<?php echo $password; ?>">
 
-                <span class="help-block"><?php echo $password_err; ?></span>
+						<span class="help-block"><?php echo $password_err; ?></span>
 
-            </div>
+					</div>
 
-            <div class="form-group <?php echo (!empty($confirm_password_err)) ? 'has-error' : ''; ?>">
+					<div class="form-group <?php echo (!empty($confirm_password_err)) ? 'has-error' : ''; ?>">
 
-                <label>Confirm Password</label>
+						<label>Confirm Password</label>
 
-                <input type="password" name="confirm_password" class="form-control" value="<?php echo $confirm_password; ?>">
+						<input type="password" name="confirm_password" class="form-control" value="<?php echo $confirm_password; ?>">
 
-                <span class="help-block"><?php echo $confirm_password_err; ?></span>
+						<span class="help-block"><?php echo $confirm_password_err; ?></span>
 
-            </div>
+					</div>
 
-            <div class="form-group">
+					<div class="form-group">
 
-                <input type="submit" class="btn btn-primary" value="Submit">
+						<input type="submit" class="btn btn-primary" value="Submit">
 
-                <input type="reset" class="btn btn-default" value="Reset">
+						<input type="reset" class="btn btn-default" value="Reset">
 
-            </div>
+					</div>
 
-            <p>Already have an account? <a href="login.php">Login here</a>.</p>
+					<p>Already have an account? <a href="login.php">Login here</a>.</p>
 
-        </form>
-
-
+				</form>
+			</div>
+			<div class ="col"></div>
 
     </div>
 

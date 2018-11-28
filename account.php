@@ -92,7 +92,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 
     <!-- Custom styles for this template -->
 
-    <link href="css/3-col-portfolio.css" rel="stylesheet">
+    <link href="stylesheet.css" type="text/css" rel="stylesheet">
 
 
 
@@ -100,7 +100,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 
 
 
-  <body>
+  <body style="background-color:  #990000">
 
 
 
@@ -141,6 +141,19 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
       </div>
 
     </nav>
+	
+	<div></div> <!-- Grey Header Bar -->
+		<div class="row" style="background-color: #b9bec1">
+		</br>
+			<div class="col-2"></div>
+			<div class="col-8">
+				<br>
+				<br><br>
+				<h2>Your Current Listings</h2>
+			</div>
+			<div class="col-2"></div>
+		</div>
+		<br />
 
 
 
@@ -152,57 +165,64 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 
       <!-- Page Heading -->
 
-      <center><h2>Current Listings</h2></center>
+
+	  <div class="row" style= "background-color: #b9bec1">
+		</br>
+			<div class="col"></div>
+			
+			<div class="col">
+
+			  <div class="container">
+				<?php
+
+					$sql = "SELECT * from listings where listings.username = '$user';";
+					$query = mysqli_query($con,$sql);
+				?>
 
 
 
-      <div class="container">
-        <?php
+				<div class="tg-wrap"><table class="tg" style="undefined;table-layout: fixed; width: 331px">
+				<colgroup>
+				<col style="width: 54px">
+				<col style="width: 128px">
+				<col style="width: 149px">
+				<col style="width: 149px">
+				</colgroup>
+				  <tr>
+					<th class="tg-yw4l">ID</th>
+					<th class="tg-baqh">Category</th>
+					<th class="tg-baqh">Product</th>
+					<th class="tg-baqh">Price</th>
+				  </tr>
+				  <?php
+			 
+					   while ($row = mysqli_fetch_array($query)) {
+						   echo "<tr>";
+						   echo "<td>".$row['id']."</td>";
+						   echo "<td>".$row['product_category']."</td>";
+						   echo "<td>".$row['product']."</td>";
+						   echo "<td>".$row['product_price']."</td>";
+						   echo "</tr>";
+					   }
+					?>
+				</table></div> 
+				<div>
+					<center>
+					  <h3>Cancel Listing</h3>
+					<form action="cancel.php" method="post">
+						<input type="text" name="id" placeholder="Enter ID">
+						<br><br>
+						<input type="submit" class="btn btn-success">
+					</form>
+					</center>
+				</div>
+				<br>
 
-            $sql = "SELECT * from listings where listings.username = '$user';";
-            $query = mysqli_query($con,$sql);
-        ?>
-
-
-
-        <div class="tg-wrap"><table class="tg" style="undefined;table-layout: fixed; width: 331px">
-        <colgroup>
-        <col style="width: 54px">
-        <col style="width: 128px">
-        <col style="width: 149px">
-        <col style="width: 149px">
-        </colgroup>
-          <tr>
-            <th class="tg-yw4l">ID</th>
-            <th class="tg-baqh">Category</th>
-            <th class="tg-baqh">Product</th>
-            <th class="tg-baqh">Price</th>
-          </tr>
-          <?php
-     
-               while ($row = mysqli_fetch_array($query)) {
-                   echo "<tr>";
-                   echo "<td>".$row['id']."</td>";
-                   echo "<td>".$row['product_category']."</td>";
-                   echo "<td>".$row['product']."</td>";
-                   echo "<td>".$row['product_price']."</td>";
-                   echo "</tr>";
-               }
-            ?>
-        </table></div> 
-        <div>
-            <center>
-              <h3>Cancel Listing</h3>
-            <form action="cancel.php" method="post">
-                <input type="text" name="id" placeholder="Enter ID">
-                <br><br>
-                <input type="submit" class="btn btn-success">
-            </form>
-            </center>
-        </div>
-        <br>
-
-      </div>
+			  </div>
+			</div>
+			<div class="col"></div>
+	  </div>
+	</div>
 
     <!-- /.container -->
 
