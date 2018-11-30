@@ -113,7 +113,7 @@ $con=mysqli_connect("localhost","root","","honestcraig_db");
 			<div class="col-8">
 				<br>
 				<br><br>
-				<h2>Current Aquatics Listings</h2>
+					<h2>Current Aquatics Listings</h2>
 			</div>
 			<div class="col-2"></div>
 		</div>
@@ -137,10 +137,12 @@ $con=mysqli_connect("localhost","root","","honestcraig_db");
 			  <div class="container">
 				<?php
 					//$sql = "SELECT * from listings where product_category = 'Aquatics';";
-					$sql = "SELECT * from listings, users_ratings where product_category = 'Aquatics' AND listings.username=users_ratings.username;";
+					$sql ="SELECT * from listings, users where listings.username = users.username AND product_category = 'Aquatics';";
+					//$sql = "SELECT * from listings,users where product_category = 'Aquatics' AND users.username = 'admin2';";
 					$query = mysqli_query($con,$sql);
 				?>
-				<div class="tg-wrap"><table class="tg" style="undefined;table-layout: fixed; width: 331px">
+				<br>
+				<div class="tg-wrap"><table class="tg" style="undefined;table-layout: fixed; width: 331px;">
 				<colgroup>
 				<col style="width: 100px">
 				<col style="width: 200px">
@@ -149,21 +151,34 @@ $con=mysqli_connect("localhost","root","","honestcraig_db");
 				<col style="width: 149px">
 				</colgroup>
 				  <tr>
-					<th class="tg-yw4l">Product</th>
+					<th class="tg-baqh">Product</th>
 					<th class="tg-baqh">Product Description</th>
 					<th class="tg-baqh">Price</th>
 					<th class="tg-baqh">Seller</th>
-					<th class="tg-baqh">Seller's Rating</th>
+
+					<th class="tg-baqh">Purchase</th>
 				  </tr>
 				  <?php
-			 
 					   while ($row = mysqli_fetch_array($query)) {
-						   echo "<tr>";
+
+							$product = urlencode($row['product']);
+							$category = $row['product_category'];
+							$seller = $row['username'];
+							$price = $row['product_price'];
+							$userRating = $row['rating'];
+
+
+
+
+
+
+							 echo "<tr>";
 						   echo "<td>".$row['product']."</td>";
 						   echo "<td>".$row['product_desc']."</td>";
 						   echo "<td>".$row['product_price']."</td>";
-						   echo "<td>".$row['username']."</td>";
-						   echo "<td>".$row['rating']."</td>";
+						   echo "<td><span data-toggle=tooltip title=$userRating>".$row['username']."</span></td>";
+						   //echo "<td>".$row['rating']."</td>";
+						   echo "<td><a href=review_order.php?product=".$product."&seller=".$seller."&price=".$price."&category=".$category." style=color:blue>Purchase</a></td>";
 						   echo "</tr>";
 					   }
 					?>

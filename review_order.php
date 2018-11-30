@@ -13,6 +13,16 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 
 }
 
+$category = $_GET['category'];
+$product = $_GET['product'];
+$price = $_GET['price'];
+$seller = $_GET['seller'];
+
+$_SESSION['category'] = $category;
+$_SESSION['product'] = $product;
+$_SESSION['price'] = $price;
+$_SESSION['seller'] = $seller
+
 ?>
 
 
@@ -43,7 +53,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
     <!-- Bootstrap core CSS -->
 
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/css/star-rating.css" media="all" rel="stylesheet" type="text/css" />
+
 
 
     <!-- Custom styles for this template -->
@@ -56,7 +66,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 
 
 
-  <body  style="background-color:  #990000">
+  <body style="background-color:  #990000">
 
 
 
@@ -78,13 +88,9 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 
           <ul class="navbar-nav ml-auto">
 
-            <li class="nav-item active">
+            <li class="nav-item">
 
-              <a class="nav-link" href="index.php">Home
-
-                <span class="sr-only">(current)</span>
-
-              </a>
+              <a class="nav-link" href="index.php">Home</a>
 
             <li class="nav-item">
 
@@ -99,7 +105,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
       </div>
 
     </nav>
-	
+
 	<div></div> <!-- Grey Header Bar -->
 		<div class="row" style="background-color: #b9bec1">
 		</br>
@@ -107,89 +113,86 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 			<div class="col-8">
 				<br>
 				<br><br>
-				<h2>Create a Listing</h2>
+				<h2>Review Order</h2>
 			</div>
 			<div class="col-2"></div>
 		</div>
 		<br />
 
 
-
     <!-- Page Content -->
 
-    <div class="container">
+		
 
-
-      <!-- Page Heading -->
-	  
-	  <div class="row" style= "background-color: #b9bec1">
+	<div class="container">
+	
+	<div class="row" style= "background-color: #b9bec1">
 		</br>
 			<div class="col"></div>
 			
-			<div class="col-lg">
+			<div class="col">
+	
+				<div class="container">
+					<!--Username: <?php echo htmlspecialchars($_SESSION['username']); ?> 
+					<br> -->
+					<br>
+					Category: <?php echo $category ?>
+					<br>
+					Seller: <?php echo $seller ?>
+					<br>
+					Price: <?php echo $price ?>
+					<br>
+					Product: <?php echo $product ?>
 
-			  <h1 align="center">What are we selling today?</h1>
-
-					<form action="confirmation.php" method="post">
-					<h3>Category:
-					  <select name="category">
-						<option value="Aquatics">Aquatics</option>
-						<option value="Auto">Auto</option>
-						<option value="Home">Home</option>
-					  </select>
-					</h3>
-					<h3>Product Name:</h3>
-					  <input type="text" name="product_name">
-					
-					<h3>Product Description:</h3>
-					  <textarea name="description" rows="5" cols="50"></textarea>
-					  <br>
-					  <h3>Product Price:</h3>
-					  <input type="text" name="price" size="5">
 					
 					<br>
-					<h3>Image of product:</h3>
-					<p style="font-size:100%;"><input type="file" name="img" id="img"></p>
-					
 					<br>
-					<center><button type="submit" class="btn btn-success">Submit</button></center>
-					<br>
-					
-					
 
-				</form>
-			</div>
+					
+					<form action="rating.php" method="post">
+					<a href="index.php" class = "btn btn-danger">Cancel</a>
+					<button type="submit" class="btn btn-success">Submit</button>
+					</form>
+					
+					<br><br>
+
+
+				</div>
+				
+				</div>
 			<div class="col"></div>
 		</div>
 	</div>
 
-<!--footer-->
-<nav class="navbar navbar-dark bg-dark fixed-bottom">
+      <!-- /.container -->
+	
+    </footer>
+	<nav class="navbar navbar-dark bg-dark fixed-bottom">
 
 
-<?php if( isset($_SESSION['username']) && !empty($_SESSION['username']) )
-{
-?>
-<div class="container text-center">
-<p class="navbar-text col-md-12 col-sm-12 col-xs-12 text-white">Copyrighted by HonestCraig<sup>&copy;</sup>
-  <br>  
-  Logged in as: <?php echo htmlspecialchars($_SESSION['username']); ?>
-  <br>
-  <a href="logout.php" class="btn btn-danger">Sign Out</a>
-</p>
-</div>
-<?php }else{ ?>
-    <div class="container text-center">
-<p class="navbar-text col-md-12 col-sm-12 col-xs-12 text-white">
-Copyrighted by HonestCraig<sup>&copy;
-<br>
-<br>
-<a href="login.php" class="btn btn-success">Sign in</a>
-</p>
-</div>
-<?php } ?>>
-</nav>
-
+		<?php if( isset($_SESSION['username']) && !empty($_SESSION['username']) )
+		{
+		?>
+		<div class="container text-center">
+		<p class="navbar-text col-md-12 col-sm-12 col-xs-12 text-white">Copyrighted by HonestCraig<sup>&copy;</sup>
+		  <br>  
+		  Logged in as: <?php echo htmlspecialchars($_SESSION['username']); ?>
+		  <br>
+		  <a href="logout.php" class="btn btn-danger">Sign Out</a>
+		</p>
+		</div>
+		<?php }else{ ?>
+			<div class="container text-center">
+		<p class="navbar-text col-md-12 col-sm-12 col-xs-12 text-white">
+		Copyrighted by HonestCraig<sup>&copy;
+		<br>
+		<br>
+		<a href="login.php" class="btn btn-success">Sign in</a>
+		</p>
+		</div>
+		<?php } ?>>
+		</nav>
+	
 
 
     <!-- Bootstrap core JavaScript -->
