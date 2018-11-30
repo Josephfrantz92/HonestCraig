@@ -79,20 +79,20 @@ session_start();
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <h3>Aquatics</h3>
-                            <img class="d-block w-100" src="photos/aquatics/boatHD.jpg" alt="Aquatics">
-                            <a class="nav-item nav-link" href="Aquatics.php">Click here to be taken to the Aquatics Marketplace!</a>
+                            
+                            <a class="nav-item nav-link" href="Aquatics.php"><img class="d-block w-100" src="photos/aquatics/boatHD.jpg" alt="Aquatics"></a>
                         </div>
 
                         <div class="carousel-item">
                             <h3>Auto</h3>
-                            <img class="d-block w-100" src="photos/auto/showroom.jpg" alt="Auto">
-                            <a class="nav-item nav-link" href="Auto.php">Click here to be taken to the Auto Marketplace!</a>
+                            
+                            <a class="nav-item nav-link" href="Auto.php"><img class="d-block w-100" src="photos/auto/showroom.jpg" alt="Auto"></a>
                         </div>
 
                         <div class="carousel-item">
                             <h3>Home</h3>
-                            <img class="d-block w-100" src="photos/Home/home.jpg" alt="Home">
-                            <a class="nav-item nav-link" href="Home.php">Click here to be taken to the Home Marketplace!</a>
+                            
+                            <a class="nav-item nav-link" href="Home.php"><img class="d-block w-100" src="photos/Home/home.jpg" alt="Home"></a>
                         </div>
                     </div>
                     <!-- Left and right controls -->
