@@ -13,27 +13,18 @@ session_start();
     <title> HonestCraig.org </title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link href="stylesheet.css" type="text/css" rel="stylesheet">
+
+
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<!--<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"> -->
+	<link rel="manifest" href="/site.webmanifest">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="theme-color" content="#ffffff">
+
 </head>
 
-<body style="background-color:  #990000">
-<!-- Old Nav 
-    <nav class="navbar navbar-expand-lg">
-        <a class="navbar-brand col-9" href="index.html" style="text-align: center; font-size: 28pt">HonestCraig, Shopping Responsibly</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon col-2" style="background-color: white"></span>
-  </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <a class="nav-item nav-link" href="Signup.php">Sign up</a>
-                <a class="nav-item nav-link" href="login.php">Log in</a>
-                <a class="nav-item nav-link" href="sell.php">Sell</a>
-                <a class="nav-item nav-link" href="account.php">Account</a>
-            </div>
-        </div>
-    </nav>
-    -->
-
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+<body style="background-color:  #990000;">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
       <div class="container">
         <a class="navbar-brand" href="#"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -54,18 +45,21 @@ session_start();
         </div>
       </div>
     </nav>
-    <div></div>
-    <div class="row" style="background-color: #b9bec1">
-    </br>
-        <div class="col-2"></div>
-        <div class="col-8">
-        <br>
-        <br><br>
-        <h3>Welcome to Honest Craig! Where buying is as easy as selling. In the slides below you will see some of the many product categories we have. </h3>
+    <br>
+    <div class="row" style="background-color: #990000">
+    <br>
+        <div class="col-4"></div>
+        <div class="col-4"style="background-color: #b9bec1">
+        <h1>Welcome to Honest Craig!</h1>
+        <img src="logo.png" style="height:190px;width:250px;">
         </div>
-        <div class="col-2"></div>
+       <div class="col-4"></div>
     </div>
-    <br />
+    <br>
+
+    <div>
+        
+    </div>
                 <center>
                 <div id="myCarousel" class="carousel slide col-6" data-ride="carousel" style="background-color: #b9bec1; margin-left: 50px; margin-right: 50px">
                     <!-- Indicators -->
@@ -74,7 +68,7 @@ session_start();
                         <li data-target="#myCarousel" data-slide-to="1"></li>
                         <li data-target="#myCarousel" data-slide-to="2"></li>
                     </ol>
-
+                
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner">
                         <div class="carousel-item active">
@@ -105,12 +99,14 @@ session_start();
                         <span class="sr-only">Next</span>
                     </a>
                 </div>
+                <br>
                 </center>
+                
     </div>
 
 
 <!--footer-->
-<nav class="navbar navbar-dark bg-dark fixed-bottom">
+<div class="navbar navbar-dark bg-dark static-bottom">
 
 
 <?php if( isset($_SESSION['username']) && !empty($_SESSION['username']) )
@@ -131,10 +127,16 @@ Copyrighted by HonestCraig<sup>&copy;
 </p>
 </div>
 <?php } ?>>
-</nav>
+</div>
 
+<!--Feedback button -->
 
-
+<div id="mybutton" style=" 
+    position: fixed;
+  bottom: -4px;
+  right: 10px;">
+<a a href="mailto:admin@honestcraig.com?Subject=Website%20Feedback" target="_top"><img src="feedback.png" style="height:100px;width:130px;"></a>
+</div>
 
 
 

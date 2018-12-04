@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 04, 2018 at 02:13 AM
+-- Generation Time: Nov 30, 2018 at 05:11 AM
 -- Server version: 10.1.32-MariaDB
 -- PHP Version: 7.2.5
 
@@ -61,8 +61,9 @@ CREATE TABLE `listings` (
 --
 
 INSERT INTO `listings` (`id`, `product_category`, `product`, `product_desc`, `product_price`, `username`, `img`) VALUES
-(24, 'Home', 'sdaasd', '', 111, 'admin3', ''),
-(28, 'Auto', 'TestAuto', '123', 1223, 'admin2', '');
+(21, 'Aquatics', 'TestBoat1', 'Test', 1000, 'admin2', ''),
+(22, 'Auto', 'Test Car', 'Fast car', 100, 'admin2', ''),
+(24, 'Home', 'sdaasd', '', 111, 'admin3', '');
 
 -- --------------------------------------------------------
 
@@ -83,12 +84,11 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `username`, `password`, `rating`) VALUES
 (1, 'admin', '$2y$10$mn9D8nCZ.Sf1fW3ptgsF8OgQ1ZO8RAngIL9UTXqXFUv5PYbhlSZbG', '0'),
-(2, 'admin2', '$2y$10$06qu3a.EU8nvXorTO/wxKuFN7Xsd1m3KvibymoozOvwMwYKIDji2i', '4'),
+(2, 'admin2', '$2y$10$06qu3a.EU8nvXorTO/wxKuFN7Xsd1m3KvibymoozOvwMwYKIDji2i', '3'),
 (3, 'testuser1', '$2y$10$jpe81cs33/uScQ7a1W6QgeKrihET4DfDGu0DTp6idCIV0Bs5T/VGe', '0'),
 (4, 'JoeFrantz', '$2y$10$eOZ6KwodBAVUI24GKvMHTeEJzCdDjpqzgwM9g0LFMDCA/2XOOzWPm', '0'),
 (5, 'testuser99', '$2y$10$jjb/XG6Dir6zuXv1XWkHJOyQA3APflV5Z5Yz8nHb7uGDCK4rWbdAi', '0'),
-(6, 'admin3', '$2y$10$cqm/E8JIdEmDBmMKD8I7leTGFe.6qHm/GtnF726gxjtZeYqJg2f1y', '5'),
-(7, 'JoeFrantz2', '$2y$10$0FdG63ewqpCVCmEH9hRSRuB.P0D/YBGHoPYFEu51WheT8.k5pBnHy', '5');
+(6, 'admin3', '$2y$10$cqm/E8JIdEmDBmMKD8I7leTGFe.6qHm/GtnF726gxjtZeYqJg2f1y', '5');
 
 -- --------------------------------------------------------
 
@@ -133,9 +133,7 @@ INSERT INTO `users_ratings` (`id`, `username`, `rating`, `comment`, `rater`) VAL
 (21, 'admin2', 1, '', ''),
 (22, 'admin2', 5, 'Test', 'admin3'),
 (23, 'admin2', 3, 'Test', 'admin2'),
-(24, 'admin3', 5, 'Good sale', 'admin3'),
-(25, 'JoeFrantz2', 5, 'Good seller!', 'admin2'),
-(26, 'admin2', 5, 'Great seller', 'admin2');
+(24, 'admin3', 5, 'Good sale', 'admin3');
 
 --
 -- Indexes for dumped tables
@@ -173,13 +171,13 @@ ALTER TABLE `users_ratings`
 -- AUTO_INCREMENT for table `listings`
 --
 ALTER TABLE `listings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `users_purchases`
@@ -191,7 +189,7 @@ ALTER TABLE `users_purchases`
 -- AUTO_INCREMENT for table `users_ratings`
 --
 ALTER TABLE `users_ratings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
