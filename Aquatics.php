@@ -36,7 +36,7 @@ $con=mysqli_connect("localhost","root","","honestcraig_db");
     <style type="text/css">
 .tg  {border-collapse:collapse;border-spacing:0;border-color:#999;margin:0px auto;}
 .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 20px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#999;color:#444;background-color:#F7FDFA;}
-.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 20px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#999;color:#fff;background-color:#26ADE4;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 20px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#999;color:#fff;background-color:#990000;}
 .tg .tg-baqh{text-align:center;vertical-align:center}
 .tg .tg-cx4s{background-color:#f7fdfa;text-align:center;vertical-align:center}
 .tg .tg-yw4l{vertical-align:top}
@@ -70,54 +70,38 @@ $con=mysqli_connect("localhost","root","","honestcraig_db");
 
     <!-- Navigation -->
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-
+    
+   <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
       <div class="container">
-
         <a class="navbar-brand" href="#"></a>
-
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-
           <span class="navbar-toggler-icon"></span>
-
         </button>
-
         <div class="collapse navbar-collapse" id="navbarResponsive">
-
           <ul class="navbar-nav ml-auto">
-
             <li class="nav-item ">
-
               <a class="nav-link" href="index.php">Home</a>
-
             </li>
-
             <li class="nav-item">
-
-              <a class="nav-link active" href="account.php">Account</a>
-
+              <a class="nav-link" href="account.php">Account</a>
             </li>
-
+            <li class="nav-item">
+              <a class="nav-link" href="sell.php">Sell</a>
+            </li>
           </ul>
-
         </div>
-
       </div>
-
     </nav>
-
-	<div></div> <!-- Grey Header Bar -->
-		<div class="row" style="background-color: #b9bec1">
-		</br>
-			<div class="col-2"></div>
-			<div class="col-8">
-				<br>
-				<br><br>
-					<h2>Current Aquatics Listings</h2>
-			</div>
-			<div class="col-2"></div>
-		</div>
-		<br />
+    <br>
+    <div class="row" style="background-color: #990000">
+    <br>
+        <div class="col-4"></div>
+        <div class="col-4"style="background-color:  #b9bec1">
+					<h1>Current Aquatics Listings!</h1>
+        </div>
+       <div class="col-4"></div>
+    </div>
+    <br>
 
 
     <!-- Page Content -->
@@ -129,7 +113,7 @@ $con=mysqli_connect("localhost","root","","honestcraig_db");
       <!-- Page Heading -->
 
       <div class="row" style= "background-color: #b9bec1">
-		</br>
+		<br>
 			<div class="col"></div>
 			
 			<div class="col">
@@ -175,7 +159,7 @@ $con=mysqli_connect("localhost","root","","honestcraig_db");
 							 echo "<tr>";
 						   echo "<td>".$row['product']."</td>";
 						   echo "<td>".$row['product_desc']."</td>";
-						   echo "<td>".$row['product_price']."</td>";
+						   echo "<td>$".$row['product_price']."</td>";
 						   echo "<td><span data-toggle=tooltip title=$userRating>".$row['username']."</span></td>";
 						   //echo "<td>".$row['rating']."</td>";
 						   echo "<td><a href=review_order.php?product=".$product."&seller=".$seller."&price=".$price."&category=".$category." style=color:blue>Purchase</a></td>";
@@ -183,7 +167,7 @@ $con=mysqli_connect("localhost","root","","honestcraig_db");
 					   }
 					?>
 				</table>
-					
+				<br>	
 				</div>
 				
 			  </div>

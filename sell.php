@@ -62,56 +62,36 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 
     <!-- Navigation -->
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-
+   <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
       <div class="container">
-
         <a class="navbar-brand" href="#"></a>
-
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-
           <span class="navbar-toggler-icon"></span>
-
         </button>
-
         <div class="collapse navbar-collapse" id="navbarResponsive">
-
           <ul class="navbar-nav ml-auto">
-
-            <li class="nav-item active">
-
-              <a class="nav-link" href="index.php">Home
-
-                <span class="sr-only">(current)</span>
-
-              </a>
-
-            <li class="nav-item">
-
-              <a class="nav-link" href="account.php">Account</a>
-
+            <li class="nav-item ">
+              <a class="nav-link" href="index.php">Home</a>
             </li>
-
+            <li class="nav-item">
+              <a class="nav-link" href="account.php">Account</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="sell.php">Sell</a>
+            </li>
           </ul>
-
         </div>
-
       </div>
-
     </nav>
-	
-	<div></div> <!-- Grey Header Bar -->
-		<div class="row" style="background-color: #b9bec1">
-		</br>
-			<div class="col-2"></div>
-			<div class="col-8">
-				<br>
-				<br><br>
-				<h2>Create a Listing</h2>
-			</div>
-			<div class="col-2"></div>
-		</div>
-		<br />
+    <br>
+    <div class="row" style="background-color: #990000">
+    <br>
+        <div class="col-4"></div>
+        <div class="col-4"style="background-color:  #990000">
+        </div>
+       <div class="col-4"></div>
+    </div>
+    <br>
 
 
 
@@ -146,6 +126,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 					  <br>
 					  <h3>Product Price:</h3>
 					  <input type="text" name="price" size="5">
+            <label>(USD)</label>
 					
 					<br>
 					<h3>Image of product:</h3>
